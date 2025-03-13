@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signin Page</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            font-family: "Merriweather", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-family: "Merienda", cursive;
+        }
+        .outer{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("images/bg-image.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .outer>.inner{
+            width: 300px;
+            height: 340px;
+            border-radius: 20px;
+            box-shadow: 2px 2px 2px rgb(49, 48, 48);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            &:hover{
+                box-shadow: -2px -2px 2px rgb(49, 48, 48);
+            }
+        }
+        .outer>.inner>.form{
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .outer>.inner>.form>.input{
+            width: 100%;
+            height: 40px;
+            border-radius: 20px;
+            padding-left: 10px;
+            border: none;
+        }
+        #btn{
+            width: 50%;
+            height: 40px;
+            border: none;
+            border-radius: 20px;
+            margin-left: 70px;
+            font-weight: 700;
+            font-size: larger;
+            background-color: #D2665A;
+            &:hover{
+                background-color: #cf594c;
+            }
+            
+        }
+        .outer>.inner>.form>a{
+            text-decoration: none;
+            color: black;
+            text-align: center;
+            &:hover{
+                color: rgb(24, 98, 98);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">
+            <h1>Login Page</h1>
+            <form action="" class="form" id="form">
+                <label for="username" style="font-weight: 700; font-size: larger;">UserName:</label><input type="text" class="input" id="username"><br>
+                <label for="password" style="font-weight: 700; font-size: larger;">Password:</label><input type="password" class="input" id ="password"><br>
+                <button id="btn">Login</button><a href="./singin.html">I Don't Have An Account</a>
+            </form>
+        </div>
+    </div>
+    <script>
+        let form= document.getElementById("form")
+        form.addEventListener("submit",(e)=>{
+            e.preventDefault()
+            let userid=document.getElementById("username").value
+            let userpassword=document.getElementById("password").value
+            if(userid===localStorage.getItem("username",username) && userpassword===localStorage.getItem("password",password))
+            {
+                window.open("./src/index.html","_self")
+            }
+            else{
+                alert("Wrong user id and password Try again")
+            }
+        })
+    </script>
+</body>
+</html>
